@@ -1,0 +1,109 @@
+/home/ahua8/mast3r/final_frames_2fps
+{'use_calib': False, 'single_thread': False, 'dataset': {'subsample': 1, 'img_downsample': 1, 'center_principle_point': True}, 'matching': {'max_iter': 15, 'lambda_init': 1e-08, 'convergence_thresh': 1e-06, 'dist_thresh': 0.1, 'radius': 3, 'dilation_max': 5}, 'tracking': {'min_match_frac': 0.05, 'max_iters': 75, 'C_conf': 0.0, 'Q_conf': 1.5, 'rel_error': 0.001, 'delta_norm': 0.001, 'huber': 1.345, 'match_frac_thresh': 0.333, 'sigma_ray': 0.003, 'sigma_dist': 10.0, 'sigma_pixel': 1.0, 'sigma_depth': 10.0, 'sigma_point': 0.05, 'pixel_border': -10, 'depth_eps': 1e-06, 'filtering_mode': 'weighted_pointmap', 'filtering_score': 'median'}, 'local_opt': {'pin': 1, 'window_size': 1000000.0, 'C_conf': 0.0, 'Q_conf': 1.5, 'min_match_frac': 0.1, 'pixel_border': -10, 'depth_eps': 1e-06, 'max_iters': 20, 'sigma_ray': 0.003, 'sigma_dist': 10.0, 'sigma_pixel': 1.0, 'sigma_depth': 10.0, 'sigma_point': 0.05, 'delta_norm': 1e-08, 'use_cuda': True}, 'retrieval': {'k': 3, 'min_thresh': 0.005}, 'reloc': {'min_match_frac': 0.3, 'strict': True}}
+/home/ahua8/mast3r/MASt3R-SLAM/thirdparty/mast3r/mast3r/model.py:24: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(model_path, map_location='cpu')
+/home/ahua8/mast3r/MASt3R-SLAM/thirdparty/mast3r/mast3r/retrieval/processor.py:70: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(modelname, 'cpu')  # TODO from pretrained to download it automatically
+/home/ahua8/mast3r/MASt3R-SLAM/mast3r_slam/frame.py:116: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:206.)
+  uimg = torch.from_numpy(img["unnormalized_img"]) / 255.0
+... loading model from checkpoints/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth
+instantiating : AsymmetricMASt3R(enc_depth=24, dec_depth=12, enc_embed_dim=1024, dec_embed_dim=768, enc_num_heads=16, dec_num_heads=12, pos_embed='RoPE100',img_size=(512, 512), head_type='catmlp+dpt', output_mode='pts3d+desc24', depth_mode=('exp', -inf, inf), conf_mode=('exp', 1, inf), patch_embed_cls='PatchEmbedDust3R', two_confs=True, desc_conf_mode=('exp', 0, inf), landscape_only=False)
+<All keys matched successfully>
+Loading retrieval model from checkpoints/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric_retrieval_trainingfree.pth
+
+==============================
+REAL-TIME STREAM STARTED
+==============================
+
+[STREAM] frame=000 t=  0.0s start_lag=    2.5ms completion_lag=  907.8ms
+[STREAM] frame=001 t=  0.5s start_lag=  408.7ms completion_lag=  826.6ms
+[STREAM] frame=002 t=  1.0s start_lag=  327.1ms completion_lag=  539.4ms
+[STREAM] frame=003 t=  1.5s start_lag=   39.9ms completion_lag=  259.2ms
+[STREAM] frame=004 t=  2.0s start_lag=    0.1ms completion_lag=  224.2ms
+[STREAM] frame=005 t=  2.5s start_lag=    0.3ms completion_lag=  223.6ms
+[STREAM] frame=006 t=  3.0s start_lag=    1.4ms completion_lag=  237.0ms
+[STREAM] frame=007 t=  3.5s start_lag=    0.3ms completion_lag=  234.3ms
+[STREAM] frame=008 t=  4.0s start_lag=    1.2ms completion_lag=  237.2ms
+[STREAM] frame=009 t=  4.5s start_lag=    1.0ms completion_lag=  231.9ms
+[STREAM] frame=010 t=  5.0s start_lag=    1.0ms completion_lag=  236.8ms
+[STREAM] frame=011 t=  5.5s start_lag=    0.8ms completion_lag=  212.7ms
+[STREAM] frame=012 t=  6.0s start_lag=    0.7ms completion_lag=  236.2ms
+[STREAM] frame=013 t=  6.5s start_lag=    1.0ms completion_lag=  217.3ms
+[STREAM] frame=014 t=  7.0s start_lag=    1.1ms completion_lag=  236.8ms
+[STREAM] frame=015 t=  7.5s start_lag=    0.9ms completion_lag=  215.6ms
+[STREAM] frame=016 t=  8.0s start_lag=    1.2ms completion_lag=  242.2ms
+[STREAM] frame=017 t=  8.5s start_lag=    1.2ms completion_lag=  240.3ms
+[STREAM] frame=018 t=  9.0s start_lag=    1.1ms completion_lag=  484.6ms
+[STREAM] frame=019 t=  9.5s start_lag=    0.2ms completion_lag=  214.0ms
+[STREAM] frame=020 t= 10.0s start_lag=    1.2ms completion_lag=  230.3ms
+[STREAM] frame=021 t= 10.5s start_lag=    1.0ms completion_lag=  236.5ms
+[STREAM] frame=022 t= 11.0s start_lag=    0.9ms completion_lag=  244.5ms
+[STREAM] frame=023 t= 11.5s start_lag=    0.3ms completion_lag=  215.3ms
+[STREAM] frame=024 t= 12.0s start_lag=    1.2ms completion_lag=  240.9ms
+[STREAM] frame=025 t= 12.5s start_lag=    0.9ms completion_lag=  244.3ms
+[STREAM] frame=026 t= 13.0s start_lag=    1.0ms completion_lag=  242.1ms
+[STREAM] frame=027 t= 13.5s start_lag=    0.9ms completion_lag=  236.5ms
+[STREAM] frame=028 t= 14.0s start_lag=    0.8ms completion_lag=  247.1ms
+[STREAM] frame=029 t= 14.5s start_lag=    0.6ms completion_lag=  214.1ms
+[STREAM] frame=030 t= 15.0s start_lag=    0.2ms completion_lag=  236.9ms
+FPS: 1.9688992483753183
+Database retrieval 2 :  {0}
+[STREAM] frame=031 t= 15.5s start_lag=    0.6ms completion_lag=  657.7ms
+[STREAM] frame=032 t= 16.0s start_lag=  158.2ms completion_lag=  396.6ms
+[STREAM] frame=033 t= 16.5s start_lag=    0.1ms completion_lag=  243.9ms
+[STREAM] frame=034 t= 17.0s start_lag=    0.5ms completion_lag=  233.4ms
+[STREAM] frame=035 t= 17.5s start_lag=    0.3ms completion_lag=  232.6ms
+[STREAM] frame=036 t= 18.0s start_lag=    0.2ms completion_lag=  220.1ms
+[STREAM] frame=037 t= 18.5s start_lag=    0.6ms completion_lag=  238.2ms
+[STREAM] frame=038 t= 19.0s start_lag=    0.4ms completion_lag=  237.8ms
+[STREAM] frame=039 t= 19.5s start_lag=    0.7ms completion_lag=  236.3ms
+[STREAM] frame=040 t= 20.0s start_lag=    0.5ms completion_lag=  239.0ms
+[STREAM] frame=041 t= 20.5s start_lag=    0.4ms completion_lag=  237.5ms
+[STREAM] frame=042 t= 21.0s start_lag=    0.4ms completion_lag=  237.2ms
+[STREAM] frame=043 t= 21.5s start_lag=    0.6ms completion_lag=  237.9ms
+Database retrieval 3 :  {0, 1}
+[STREAM] frame=044 t= 22.0s start_lag=    0.5ms completion_lag=  818.7ms
+[STREAM] frame=045 t= 22.5s start_lag=  319.2ms completion_lag=  532.3ms
+[STREAM] frame=046 t= 23.0s start_lag=   33.3ms completion_lag=  245.5ms
+[STREAM] frame=047 t= 23.5s start_lag=    0.2ms completion_lag=  210.8ms
+[STREAM] frame=048 t= 24.0s start_lag=    0.1ms completion_lag=  227.4ms
+[STREAM] frame=049 t= 24.5s start_lag=    0.3ms completion_lag=  236.3ms
+[STREAM] frame=050 t= 25.0s start_lag=    0.5ms completion_lag=  236.4ms
+[STREAM] frame=051 t= 25.5s start_lag=    0.3ms completion_lag=  243.4ms
+[STREAM] frame=052 t= 26.0s start_lag=    0.4ms completion_lag=  234.1ms
+[STREAM] frame=053 t= 26.5s start_lag=    0.1ms completion_lag=  209.1ms
+[STREAM] frame=054 t= 27.0s start_lag=    0.1ms completion_lag=  220.3ms
+[STREAM] frame=055 t= 27.5s start_lag=    0.1ms completion_lag=  228.2ms
+[STREAM] frame=056 t= 28.0s start_lag=    0.2ms completion_lag=  233.9ms
+[STREAM] frame=057 t= 28.5s start_lag=    0.2ms completion_lag=  218.5ms
+Database retrieval 4 :  {1, 2}
+[STREAM] frame=058 t= 29.0s start_lag=    0.3ms completion_lag=  815.2ms
+[STREAM] frame=059 t= 29.5s start_lag=  315.7ms completion_lag=  559.8ms
+[STREAM] frame=060 t= 30.0s start_lag=   60.8ms completion_lag=  266.3ms
+FPS: 1.9824046063319924
+[STREAM] frame=061 t= 30.5s start_lag=    0.3ms completion_lag=  232.6ms
+[STREAM] frame=062 t= 31.0s start_lag=    0.2ms completion_lag=  243.7ms
+[STREAM] frame=063 t= 31.5s start_lag=    0.4ms completion_lag=  235.7ms
+[STREAM] frame=064 t= 32.0s start_lag=    0.4ms completion_lag=  223.7ms
+[STREAM] frame=065 t= 32.5s start_lag=    0.3ms completion_lag=  229.5ms
+[STREAM] frame=066 t= 33.0s start_lag=    0.2ms completion_lag=  240.4ms
+[STREAM] frame=067 t= 33.5s start_lag=    0.3ms completion_lag=  215.1ms
+[STREAM] frame=068 t= 34.0s start_lag=    0.4ms completion_lag=  254.1ms
+[STREAM] frame=069 t= 34.5s start_lag=    0.3ms completion_lag=  236.9ms
+
+======================================
+REAL-TIME STREAM BENCHMARK
+======================================
+Frames processed       : 70
+Input stream span      : 34.500 s
+Streaming elapsed      : 34.737 s
+Average start lag      : 24.3 ms
+Maximum start lag      : 408.7 ms
+Maximum completion lag : 907.8 ms
+STREAM STATUS           : PASS - keeping up with 2 FPS
+======================================
+
+done
+
+TOTAL_WALL_TIME=60.65 sec
+MAX_RSS=7056068 KB
