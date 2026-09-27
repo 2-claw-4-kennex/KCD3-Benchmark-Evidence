@@ -6,7 +6,7 @@ Benchmark evidence for the KCD3 single-pass UAV reconstruction pipeline.
 
 - Same ~35 second UAV footage
 - Same hardware
-- NVIDIA RTX 4060 Laptop GPU — 8 GB VRAM
+- NVIDIA RTX 4060 Laptop GPU - 8 GB VRAM
 - Same MASt3R-SLAM reconstruction configuration
 - Visualization disabled during both tests
 
